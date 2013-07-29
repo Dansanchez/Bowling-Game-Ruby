@@ -30,6 +30,7 @@ Then /^I should see "([^"]*)"$/ do |message|
 end
 
 Given /^I am playing$/ do
+  @game.roll(0)
 end
 
 When /^I end a game$/ do
@@ -42,6 +43,7 @@ Then (/^I should see the next message "(.*?)"$/) do |message|
 end
 
 Then (/^I should see my final score$/) do
+  @game.calculate_score
 end
 
 Then (/^I should see the next final message "(.*?)"$/) do |message|
