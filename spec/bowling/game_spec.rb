@@ -12,6 +12,11 @@ module Bowling
       end
     end
 
+    def roll_spare
+      game.roll(5)
+      game.roll(5)
+    end 
+
     describe "#start" do
       it "sends a welcome message" do
         output.should_receive(:puts).with('Welcome to Bowling Game')
@@ -25,16 +30,25 @@ module Bowling
     end
     
     describe "#game final score" do
-      it "gutterGame" do
+      it "Roll a gutter game" do
         roll_many(19,0)
         game.calculate_score.should == 0
       end
       
-      it "allOnes" do
+      it "Roll all ones" do
         roll_many(19,1) 
         game.calculate_score.should == 20
       end
-    end
+
+      it "Roll one spare" do
+        roll_spare
+        game.roll(3)
+        roll_many(17,0)
+        game.calculate_score.should == 16
+      end
+   end
+
+    
 
     describe "#end" do
       it "sends a score message" do

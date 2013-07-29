@@ -5,6 +5,8 @@ module Bowling
     def initialize (output)
       @output = output
       @game_score = 0
+      @rolls_array = Array.new(20)
+      @current_roll = 0
     end
 
     def start
@@ -12,11 +14,13 @@ module Bowling
       @output.puts 'Enter a new roll:' 
 		end
 
-    def roll (pins)
-      @game_score += pins
+    def roll (knocked_down_pins_number)
+      @rolls_array[@current_roll] = knocked_down_pins_number
+      @current_roll += 1 
     end
 
     def calculate_score
+      @rolls_array.each {|current_roll| @game_score += current_roll }
       @game_score
     end
         
