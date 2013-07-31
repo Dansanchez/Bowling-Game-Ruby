@@ -58,6 +58,11 @@ module Bowling
         roll_many(16,0)
         game.calculate_score.should == 24
       end
+ 
+      it "Roll a perfect game" do
+        roll_many(12,10)
+        game.calculate_score.should == 300
+      end
    end 
 
     describe "#end" do

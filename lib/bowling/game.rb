@@ -1,7 +1,7 @@
 module Bowling
 
  #CONSTANTS
-  FRAME_LENGTH = 10
+  FRAMES_AMOUNT = 10
 
   class Game 
     
@@ -24,7 +24,7 @@ module Bowling
     end
 
     def calculate_score
-      for current_frame in (0..FRAME_LENGTH-1)
+      for current_frame in (0..FRAMES_AMOUNT-1)
         if strike?
           add_strike_score 
         elsif spare?
