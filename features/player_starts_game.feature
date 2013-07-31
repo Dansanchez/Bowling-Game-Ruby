@@ -8,4 +8,3 @@ Feature: player starts game
    Given I am not yet playing
    When I start a new game
    Then I should see "Welcome to Bowling Game"
-   And I should see "Enter a new roll:"

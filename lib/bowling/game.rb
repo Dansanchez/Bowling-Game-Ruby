@@ -14,9 +14,28 @@ module Bowling
     end
 
     def start
-      @output.puts 'Welcome to Bowling Game'
-      @output.puts 'Enter a new roll:' 
+      @output.puts 'Welcome to Bowling Game' 
 		end
+
+    def play
+      while game_is_not_over?
+        roll(get_keyboard_new_roll)          
+      end
+      send_score_message
+      calculate_score
+      puts @game_score
+      send_finish_message
+    end
+
+    def game_is_not_over?
+      @current_roll < 21
+    end
+      
+    def get_keyboard_new_roll
+      print "Enter a new roll: "
+      new_roll = gets.chomp 
+      new_roll.to_i
+    end
 
     def roll (knocked_down_pins_number)
       @rolls_array[@current_roll] = knocked_down_pins_number

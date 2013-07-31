@@ -26,11 +26,6 @@ module Bowling
         output.should_receive(:puts).with('Welcome to Bowling Game')
         game.start
       end
-
-      it "prompts for the firt roll" do
-        output.should_receive(:puts).with('Enter a new roll:')
-        game.start
-      end
     end
     
     describe "#game final score" do
