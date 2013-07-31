@@ -42,12 +42,9 @@ Then (/^I should see the next message "(.*?)"$/) do |message|
   output.messages.should include(message)
 end
 
-Then (/^I should see my final score$/) do
-  @game.calculate_score
-end
 
 Then (/^I should see the next final message "(.*?)"$/) do |message|
   output.messages.should include(message)
 end
 
- 
+				 

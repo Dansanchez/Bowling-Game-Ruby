@@ -17,6 +17,10 @@ module Bowling
       game.roll(5)
     end 
 
+    def roll_strike
+      game.roll(10)
+    end 
+
     describe "#start" do
       it "sends a welcome message" do
         output.should_receive(:puts).with('Welcome to Bowling Game')
@@ -46,15 +50,21 @@ module Bowling
         roll_many(17,0)
         game.calculate_score.should == 16
       end
-   end
-
-    
+   
+      it "Roll one strike" do
+        roll_strike
+        game.roll(3)
+        game.roll(4)
+        roll_many(16,0)
+        game.calculate_score.should == 24
+      end
+   end 
 
     describe "#end" do
       it "sends a score message" do
         output.should_receive(:puts).with('Your final score is:')
         game.send_score_message
-      end    
+      end 
 
       it "sends a finish message" do
         output.should_receive(:puts).with('Game finished')

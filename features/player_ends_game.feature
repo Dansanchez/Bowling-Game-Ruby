@@ -8,7 +8,6 @@ Scenario: end game
   Given I am playing
   When I end a game
   Then I should see the next message "Your final score is:"
-  And I should see my final score
   And I should see the next final message "Game finished"
 
    
