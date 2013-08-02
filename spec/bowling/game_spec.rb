@@ -31,19 +31,22 @@ module Bowling
     describe "#game final score" do
       it "Roll a gutter game" do
         roll_many(19,0)
-        game.calculate_score.should == 0
+        score = Score.new(game.rolls_array)
+        score.calculate_score.should == 0
       end
       
       it "Roll all ones" do
         roll_many(19,1) 
-        game.calculate_score.should == 20
+        score = Score.new(game.rolls_array)
+        score.calculate_score.should == 20
       end
 
       it "Roll one spare" do
         roll_spare
         game.roll(3)
         roll_many(17,0)
-        game.calculate_score.should == 16
+        score = Score.new(game.rolls_array)
+        score.calculate_score.should == 16
       end
    
       it "Roll one strike" do
@@ -51,12 +54,14 @@ module Bowling
         game.roll(3)
         game.roll(4)
         roll_many(16,0)
-        game.calculate_score.should == 24
+        score = Score.new(game.rolls_array)
+        score.calculate_score.should == 24
       end
  
       it "Roll a perfect game" do
         roll_many(12,10)
-        game.calculate_score.should == 300
+        score = Score.new(game.rolls_array)
+        score.calculate_score.should == 300
       end
    end 
 
